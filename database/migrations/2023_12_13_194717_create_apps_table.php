@@ -9,8 +9,9 @@ return new class extends Migration {
     {
         Schema::create('apps', function (Blueprint $table) {
             $table->id();
-            $table->string('key')->default(Str::random(8))->unique();
-            $table->string('secret')->default(Str::random(8))->unique();
+            $table->string('name');
+            $table->string('key')->unique();
+            $table->string('secret');
             $table->integer('max-connections')->default(2000);
             $table->tinyInteger('enable_client_messages')->default(1);
             $table->tinyInteger('enabled')->default(1);

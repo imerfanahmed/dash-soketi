@@ -11,8 +11,7 @@
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
-    <!-- Styles -->
-    @livewireStyles
+
 
     <!-- CSS files -->
     <link href="{{asset('./tabler/css/tabler.min.css')}}" rel="stylesheet"/>
@@ -30,6 +29,8 @@
             font-feature-settings: "cv03", "cv04", "cv11";
         }
     </style>
+    <!-- Styles -->
+    @livewireStyles
 </head>
 <body class="font-sans antialiased">
     <script src="{{asset('./tabler/js/demo-theme.min.js')}}"></script>
@@ -664,7 +665,9 @@
     <!-- Tabler Core -->
     <script src="{{asset('./tabler/js/tabler.min.js')}}" defer></script>
     <script src="{{asset('./tabler/js/demo.min.js')}}" defer></script>
-
+    @livewireScripts
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <x-livewire-alert::scripts />
 
 </body>
 </html>

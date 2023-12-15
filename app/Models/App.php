@@ -10,6 +10,7 @@ class App extends Model
     use HasFactory;
 
     protected $fillable = [
+        'name',
         'key',
         'secret',
         'max-connections',
