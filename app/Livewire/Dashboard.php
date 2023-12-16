@@ -48,6 +48,7 @@ public function mount(){
             'showConfirmButton' =>  false,
         ]);
         $this->redirect('/app/'.$app->id, navigate: true);
+
     }
     public function render()
     {

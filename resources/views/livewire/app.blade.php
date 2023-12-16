@@ -49,7 +49,7 @@
                 <div class="card-body">
                     <div class="tab-content">
                         <div class="tab-pane active show" id="overview" role="tabpanel">
-                            <livewire:overview/>
+                            <livewire:overview :app="$app"/>
                         </div>
 
                         <div class="tab-pane" id="credential" role="tabpanel">

@@ -11,7 +11,8 @@ class Navigation extends Component
 
     public function mount(){
         //guzzle request
-        $soketi_url = 'http://localhost:6001';
+
+        $soketi_url = config('soketi.soketi_scheme') . '://' . config('soketi.soketi_host') . ':' . config('soketi.soketi_port');
         $client = new Client();
         //check if possible to connect to server or not
         try {

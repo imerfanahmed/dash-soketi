@@ -10,7 +10,7 @@
     <div class="row">
         @foreach($apps as $app)
             <div class="col-md-3 my-2"  wire:key="app-{{ $app->id }}">
-                <a class="card" wire:navigate href="{{route('app',[$app->id])}}" wire:key="app-{{ $app->id }}">
+                <a class="card card-link card-link-rotate" wire:navigate href="{{route('app',[$app->id])}}" wire:key="app-{{ $app->id }}">
                     <div class="card-header">
                         <h1 class="card-title">
                             <i class="ti ti-id-badge"></i>
