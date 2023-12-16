@@ -3,6 +3,7 @@
 namespace App\Livewire;
 
 use App\Models\App;
+use GuzzleHttp\Client;
 use Illuminate\Support\Str;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Livewire\Component;
@@ -12,17 +13,26 @@ class Dashboard extends Component
     use LivewireAlert;
     public $appName;
     public $apps;
-    protected $listeners = ['closeModal' => '$refresh'];
+    public $soketi_running;
 public function mount(){
     $this->appName = Str::random(10);
+    //guzzle request
+    $soketi_url = 'http://localhost:6001';
+    $client = new Client();
+    //check if possible to connect to server or not
+    try {
+        $response = $client->request('GET', $soketi_url);
+        $this->soketi_running = true;
+    } catch (\Exception $e) {
+        $this->soketi_running = false;
+    }
 }
     public function saveApp(){
-        //dd($this->appName);
         $this->validate([
             'appName' => 'required|min:6'
         ]);
 
-        App::create([
+        $app = App::create([
             'name' => $this->appName,
             'key' => Str::random(10),
             'secret' => Str::random(10)
@@ -37,12 +47,7 @@ public function mount(){
             'showCancelButton' =>  false,
             'showConfirmButton' =>  false,
         ]);
-
-        //emit event for closing modal
-        $this->dispatch('closeModal');
-
-
-
+        $this->redirect('/app/'.$app->id, navigate: true);
     }
     public function render()
     {

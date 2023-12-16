@@ -1,23 +1,39 @@
 <div class="container-xl" wire:ignore>
+    <div class="col-auto ms-auto d-print-none">
+        <div class="btn-list">
+            <a class="btn btn-primary btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                <i class="ti ti-plus"></i>
+                Create New App
+            </a>
+        </div>
+    </div>
     <div class="row">
         @foreach($apps as $app)
             <div class="col-md-3 my-2"  wire:key="app-{{ $app->id }}">
-                <a class="card" href="#" wire:key="app-{{ $app->id }}">
+                <a class="card" wire:navigate href="{{route('app',[$app->id])}}" wire:key="app-{{ $app->id }}">
                     <div class="card-header">
                         <h1 class="card-title">
                             <i class="ti ti-id-badge"></i>
-                            {{ $app->name }}
+                            Name : {{ $app->name }}
                         </h1>
                     </div>
                     <div class="card-body">
-                        <div class="d-flex justify-content-between">
+                        <div class="">
                             <div>
                                 <i class="ti ti-id"></i>
-                                {{ $app->id}}
+                                ID : {{ $app->id}}
                             </div>
                             <div>
                                 <i class="ti ti-key"></i>
-                                {{ $app->key}}
+                                Key : {{ $app->key}}
+                            </div>
+                            <div>
+                                <i class="ti ti-password"></i>
+                                Secret : {{ Str::mask($app->secret,'*',2,6) }}
+                            </div>
+                            <div>
+                                <i class="ti ti-clock"></i>
+                                Created : {{ $app->created_at->diffForHumans() }}
                             </div>
                         </div>
                     </div>
@@ -27,8 +43,8 @@
 
     </div>
 
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="modal-new-app" aria-hidden="true">
-        <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal modal-blur fade" id="exampleModal" tabindex="-1" style="display: none;" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <h3 class="modal-title" id="modal-new-app">New App</h3>
@@ -46,13 +62,8 @@
 
                     </div>
                     <div class="modal-footer">
-                        <a href="#" class="btn btn-link link-secondary" data-bs-dismiss="modal">
-                            Cancel
-                        </a>
-                        <button type="submit" class="btn btn-primary ms-auto">
-                            <i class="ti ti-plus"></i>
-                            Create new APP
-                        </button>
+                        <button type="button" class="btn me-auto" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Create App</button>
                     </div>
 
                 </form>
@@ -60,18 +71,5 @@
         </div>
     </div>
 </div>
-<script>
-    document.addEventListener('closeModal', () => {
-        Livewire.on('closeModal', (event) => {
-            //hide modal using vanilla js
-            var myModalEl = document.getElementById('exampleModal')
-            var modal = bootstrap.Modal.getInstance(myModalEl)
-            modal.hide()
-
-        });
-    });
-</script>
-
-
 
 
