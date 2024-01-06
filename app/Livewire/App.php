@@ -3,12 +3,12 @@
 namespace App\Livewire;
 
 use Livewire\Component;
-use function Termwind\render;
 
 class App extends Component
 {
     public $id;
     public $app;
+    public $listeners = [ 'appUpdated' => 'mount' ];
     public function mount(){
         $this->app = \App\Models\App::findOrFail($this->id);
     }

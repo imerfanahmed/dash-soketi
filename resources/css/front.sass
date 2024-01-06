@@ -1,0 +1,120 @@
+=transform($prop)
+    -webkit-transform: $prop
+    -moz-transform: $prop
+    -ms-transform: $prop
+    -o-transform: $prop
+    transform: $prop
+
+body
+    padding: 0
+    margin: 0
+
+
+@import url('https://fonts.googleapis.com/css?family=Catamaran:300,400,500,600,700')
+#wrapper-canvas
+    display: block
+    width: 100%
+    height: 100%
+    background: #FFFFFF
+
+.more-pens
+    position: fixed
+    right: 20px
+    bottom: 20px
+    z-index: 10
+    font-family: 'Catamaran', sans-serif
+    font-size: 12px
+
+a.white-mode
+    &:link,
+    &:visited,
+    &:active
+        font-family: 'Catamaran', sans-serif
+        font-size: 12px
+        text-decoration: none
+        background: #212121
+        padding: 8px 18px
+        color: #f7f7f7
+        border-radius: 20px
+        margin: 0 4px
+
+    &--highlight
+        &:link,
+        &:visited,
+        &:active
+            background: #293FE9
+
+    &:hover
+        background: #edf3f8
+        color: #212121
+
+
+body
+    margin: 0
+    padding: 0
+    overflow: hidden
+    width: 100%
+    height: 100%
+
+
+.content
+    +transform(translateY(-50%))
+    z-index: 10
+    position: absolute
+    left: 0
+    top: 50%
+    padding: 0 90px
+    text-align: left
+    pointer-events: none
+
+
+.title
+    font-family: 'Catamaran', sans-serif
+    pointer-events: none
+    font-weight: 700
+    font-size: 70px
+    line-height: 1
+    margin-top: 14px
+    color: #212121
+    display: block
+    pointer-events: none
+
+    span
+        color: #EC456C
+
+.subtitle
+    font-family: 'Catamaran', sans-serif
+    pointer-events: none
+    font-weight: 300
+    font-size: 24px
+    line-height: 1
+    margin-top: 0
+    color: #212121
+    display: block
+    pointer-events: none
+
+    span
+        color: #EC456C
+
+.button
+    &:link,
+    &:visited,
+    &:hover,
+    &:active
+    -webkit-transition: all .3s cubic-bezier(.69, 0, .185, 1)
+    transition: all .3s cubic-bezier(.69, 0, .185, 1)
+    border-radius: 30px
+    font-family: 'Catamaran', sans-serif
+    font-size: 21px
+    font-style: normal
+    font-weight: 300
+    text-align: center
+    text-rendering: optimizeLegibility
+    padding: 18px 60px
+    line-height: 1
+    color: #90e5fb
+    margin: 20px auto 0
+    display: inline-block
+    background: #222222
+    text-decoration: none
+    box-shadow: 0 0 30px rgba(#90e5fb, 1)
