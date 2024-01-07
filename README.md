@@ -1,4 +1,11 @@
 # A powerful dashboard for Soketi
+## ScreenShots
+### Dashboard for All App
+![dashboard](./img/dashboard.png)
+### Single app configuration
+![app](./img/app.png)
+### Credentails Page
+![credentails](./img/credentials.png)
 
 ## Project Overview
 
@@ -13,11 +20,18 @@ It is built with Laravel and Livewire. One step complete solution for your soket
 
 ## Table of Contents
 
-1. [Installation](#installation)
-2. [Getting Started](#getting-started)
-3. [Testing](#testing) 
-4. [Contributing](#contributing) 
-5. [License](#license)
+- [A powerful dashboard for Soketi](#a-powerful-dashboard-for-soketi)
+  - [ScreenShots](#screenshots)
+    - [Dashboard for All App](#dashboard-for-all-app)
+    - [Single app configuration](#single-app-configuration)
+    - [Credentails Page](#credentails-page)
+  - [Project Overview](#project-overview)
+  - [Table of Contents](#table-of-contents)
+  - [Installation](#installation)
+  - [Getting Started](#getting-started)
+  - [Testing](#testing)
+  - [Contributing](#contributing)
+  - [License](#license)
 
 ## Installation
 
