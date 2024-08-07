@@ -13,6 +13,7 @@ class Navigation extends Component
         //guzzle request
 
         $soketi_url = config('soketi.soketi_scheme') . '://' . config('soketi.soketi_host') . ':' . config('soketi.soketi_port');
+        ray($soketi_url);
         $client = new Client();
         //check if possible to connect to server or not
         try {

@@ -26,4 +26,5 @@ Route::middleware([
 ])->group(function () {
     Route::get('/dashboard',\App\Livewire\Dashboard::class)->name('dashboard');
     Route::get('/app/{id}',\App\Livewire\App::class)->name('app');
+    Route::get('/test/{message}',\App\Livewire\TestEvent::class)->name('test');
 });
