@@ -63,6 +63,10 @@
                         <div class="tab-pane" id="configuration" role="tabpanel">
 {{--                            <livewire:configuration/>--}}
                         </div>
+
+                        <div class="tab-pane" id="debug" role="tabpanel">
+                            <livewire:debug/>
+                        </div>
                     </div>
                 </div>
             </div>

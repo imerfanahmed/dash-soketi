@@ -13,7 +13,7 @@ use Illuminate\Queue\SerializesModels;
 class TestEvent implements ShouldBroadcast
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
-    public $message = 'Hello World';
+    public string $message = 'Hello World';
 
     /**
      * Create a new event instance.
@@ -31,7 +31,12 @@ class TestEvent implements ShouldBroadcast
     public function broadcastOn(): array
     {
         return [
-            new Channel('test-channel')
+            new Channel('test_channel')
         ];
+    }
+
+    public function broadcastAs(): string
+    {
+        return 'test_event';
     }
 }

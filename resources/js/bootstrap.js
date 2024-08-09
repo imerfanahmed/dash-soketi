@@ -5,6 +5,7 @@
  */
 
 import axios from 'axios';
+
 window.axios = axios;
 
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
@@ -18,20 +19,24 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 import Echo from 'laravel-echo';
 
 import Pusher from 'pusher-js';
+
 window.Pusher = Pusher;
 
 window.Echo = new Echo({
     broadcaster: 'pusher',
-    key: 'app-key',
-    cluster: '',
-    wsHost: 'localhost',
-    wsPort: 6001,
-    wssPort: 6001,
-    forceTLS: false,
-    enabledTransports: ['ws'],
+    key: "7bf48928e88edf9ef941",
+    cluster: 'ap1',
+    // wsHost: 'localhost',
+    // wsPort: 6001,
+    // wssPort: 6001,
+    // forceTLS: false,
+    // enabledTransports: ['ws'],
 });
 
-Echo.channel(``)
-    .listen('*', (e) => {
-        console.log(e);
-    });
+// console.log('Echo', Echo);
+
+window.Echo.channel('test_channel')
+    .listen('test_event', e => {
+        console.log(e)
+    })
+console.log('Listening to test-channel');

@@ -1,0 +1,279 @@
+
+{
+  adapter: {
+    driver: 'local',
+    redis: {
+      requestsTimeout: 5000,
+      prefix: '',
+      redisPubOptions: {},
+      redisSubOptions: {},
+      clusterMode: false
+    },
+    cluster: { requestsTimeout: 5000 },
+    nats: {
+      requestsTimeout: 5000,
+      prefix: '',
+      servers: [ '127.0.0.1:4222' ],
+      user: null,
+      pass: null,
+      token: null,
+      timeout: 10000,
+      nodesNumber: null
+    }
+  },
+  appManager: {
+    driver: 'mysql',
+    cache: { enabled: false, ttl: -1 },
+    array: {
+      apps: [
+        {
+          id: 'app-id',
+          key: 'app-key',
+          secret: 'app-secret',
+          maxConnections: -1,
+          enableClientMessages: false,
+          enabled: true,
+          maxBackendEventsPerSecond: -1,
+          maxClientEventsPerSecond: -1,
+          maxReadRequestsPerSecond: -1,
+          webhooks: []
+        }
+      ]
+    },
+    dynamodb: { table: 'apps', region: 'us-east-1', endpoint: null },
+    mysql: { table: 'apps', version: '8.0', useMysql2: false },
+    postgres: { table: 'apps', version: '13.3' }
+  },
+  cache: { driver: 'memory', redis: { redisOptions: {}, clusterMode: false } },
+  channelLimits: { maxNameLength: 200, cacheTtl: 3600 },
+  cluster: {
+    hostname: '0.0.0.0',
+    helloInterval: 500,
+    checkInterval: 500,
+    nodeTimeout: 2000,
+    masterTimeout: 2000,
+    port: 11002,
+    prefix: '',
+    ignoreProcess: true,
+    broadcast: '255.255.255.255',
+    unicast: null,
+    multicast: null
+  },
+  cors: {
+    credentials: true,
+    origin: [ '*' ],
+    methods: [ 'GET', 'POST', 'PUT', 'DELETE', 'OPTIONS' ],
+    allowedHeaders: [
+      'Origin',
+      'Content-Type',
+      'X-Auth-Token',
+      'X-Requested-With',
+      'Accept',
+      'Authorization',
+      'X-CSRF-TOKEN',
+      'XSRF-TOKEN',
+      'X-Socket-Id'
+    ]
+  },
+  database: {
+    mysql: {
+      host: '127.0.0.1',
+      port: 3306,
+      user: 'root',
+      password: 'password',
+      database: 'dash-soketi'
+    },
+    postgres: {
+      host: '127.0.0.1',
+      port: 5432,
+      user: 'postgres',
+      password: 'password',
+      database: 'main'
+    },
+    redis: {
+      host: '127.0.0.1',
+      port: 6379,
+      db: 0,
+      username: null,
+      password: null,
+      keyPrefix: '',
+      sentinels: null,
+      sentinelPassword: null,
+      name: 'mymaster',
+      clusterNodes: []
+    }
+  },
+  databasePooling: { enabled: true, min: 0, max: 7 },
+  debug: true,
+  eventLimits: {
+    maxChannelsAtOnce: 100,
+    maxNameLength: 200,
+    maxPayloadInKb: 100,
+    maxBatchSize: 10
+  },
+  host: '127.0.0.1',
+  httpApi: { requestLimitInMb: 100, acceptTraffic: { memoryThreshold: 85 } },
+  instance: { process_id: 281888 },
+  metrics: {
+    enabled: true,
+    driver: 'prometheus',
+    host: '0.0.0.0',
+    prometheus: { prefix: 'soketi_' },
+    port: 9601
+  },
+  mode: 'full',
+  port: 6001,
+  pathPrefix: '',
+  presence: { maxMembersPerChannel: 100, maxMemberSizeInKb: 2 },
+  queue: {
+    driver: 'sync',
+    redis: { concurrency: 1, redisOptions: {}, clusterMode: false },
+    sqs: {
+      region: 'us-east-1',
+      endpoint: null,
+      clientOptions: {},
+      consumerOptions: {},
+      queueUrl: '',
+      processBatch: false,
+      batchSize: 1,
+      pollingWaitTimeMs: 0
+    }
+  },
+  rateLimiter: { driver: 'local', redis: { redisOptions: {}, clusterMode: false } },
+  shutdownGracePeriod: 3000,
+  ssl: { certPath: '', keyPath: '', passphrase: '', caPath: '' },
+  userAuthenticationTimeout: 30000,
+  webhooks: { batching: { enabled: false, duration: 50 } }
+}
+  [36m­ƒôí soketi initialization....[39m  
+  [36mÔÜí Initializing the HTTP API & Websockets Server...[39m  
+  [36mÔÜí Initializing the Websocket listeners and channels...[39m  
+  [36mÔÜí Initializing the HTTP webserver...[39m  
+  [36m­ƒòÁ´©ÅÔÇìÔÖé´©Å Initiating metrics endpoints...[39m  
+
+  [1m[30m[42m ­ƒÄë Server is up and running! [49m[39m[22m  
+  [1m[30m[42m ­ƒôí The Websockets server is available at 127.0.0.1:6001 [49m[39m[22m  
+  [1m[30m[42m ­ƒöù The HTTP API server is available at http://127.0.0.1:6001 [49m[39m[22m  
+  [1m[30m[42m ­ƒÄè The /usage endpoint is available on port 9601. [49m[39m[22m  
+  [1m[30m[42m ­ƒîá Prometheus /metrics endpoint is available on port 9601. [49m[39m[22m  
+
+  [1m[90m[106m [Fri Aug 09 2024 18:54:10 GMT+0600 (Bangladesh Standard Time)] Promoted from node to master. [49m[39m[22m  
+{
+  isMaster: true,
+  isMasterEligible: true,
+  weight: -0.1723208050402,
+  address: '127.0.0.1',
+  advertisement: undefined
+}
+  [1m[30m[42m [Fri Aug 09 2024 18:54:33 GMT+0600 (Bangladesh Standard Time)] ­ƒæ¿ÔÇì­ƒö¼ New connection: [49m[39m[22m  
+{
+  ws: uWS.WebSocket { ip: '127.0.0.1', ip2: '', appKey: 'VjB4It9RBi' }
+}
+  [1m[30m[42m [Fri Aug 09 2024 18:54:33 GMT+0600 (Bangladesh Standard Time)] Ô£ê Sent message to client: [49m[39m[22m  
+{
+  ws: uWS.WebSocket {
+    ip: '127.0.0.1',
+    ip2: '',
+    appKey: 'VjB4It9RBi',
+    sendJson: [Function (anonymous)],
+    id: '5928763873.2284182759',
+    subscribedChannels: Set(0) {},
+    presence: Map(0) {},
+    app: App {
+      initialApp: [RowDataPacket],
+      server: [Server],
+      enableUserAuthentication: false,
+      hasClientEventWebhooks: false,
+      hasChannelOccupiedWebhooks: false,
+      hasChannelVacatedWebhooks: false,
+      hasMemberAddedWebhooks: false,
+      hasMemberRemovedWebhooks: false,
+      hasCacheMissedWebhooks: false,
+      id: 2,
+      key: 'VjB4It9RBi',
+      secret: 'p0flJQy9fu',
+      maxConnections: -1,
+      enableClientMessages: 1,
+      enabled: 1,
+      maxClientEventsPerSecond: -1,
+      maxPresenceMembersPerChannel: 100,
+      maxPresenceMemberSizeInKb: 2,
+      maxChannelNameLength: 200,
+      maxEventChannelsAtOnce: 100,
+      maxEventNameLength: 200,
+      maxEventPayloadInKb: 100,
+      maxEventBatchSize: 10
+    },
+    timeout: Timeout {
+      _idleTimeout: 120000,
+      _idlePrev: [TimersList],
+      _idleNext: [TimersList],
+      _idleStart: 23913,
+      _onTimeout: [Function (anonymous)],
+      _timerArgs: undefined,
+      _repeat: null,
+      _destroyed: false,
+      [Symbol(refed)]: true,
+      [Symbol(kHasPrimitive)]: false,
+      [Symbol(asyncId)]: 99,
+      [Symbol(triggerId)]: 0
+    }
+  },
+  data: {
+    event: 'pusher:connection_established',
+    data: '{"socket_id":"5928763873.2284182759","activity_timeout":30}'
+  }
+}
+  [1m[30m[42m [Fri Aug 09 2024 18:55:38 GMT+0600 (Bangladesh Standard Time)] ÔØî Connection closed: [49m[39m[22m  
+{
+  ws: uWS.WebSocket {
+    ip: '127.0.0.1',
+    ip2: '',
+    appKey: 'VjB4It9RBi',
+    sendJson: [Function (anonymous)],
+    id: '5928763873.2284182759',
+    subscribedChannels: Set(0) {},
+    presence: Map(0) {},
+    app: App {
+      initialApp: [RowDataPacket],
+      server: [Server],
+      enableUserAuthentication: false,
+      hasClientEventWebhooks: false,
+      hasChannelOccupiedWebhooks: false,
+      hasChannelVacatedWebhooks: false,
+      hasMemberAddedWebhooks: false,
+      hasMemberRemovedWebhooks: false,
+      hasCacheMissedWebhooks: false,
+      id: 2,
+      key: 'VjB4It9RBi',
+      secret: 'p0flJQy9fu',
+      maxConnections: -1,
+      enableClientMessages: 1,
+      enabled: 1,
+      maxClientEventsPerSecond: -1,
+      maxPresenceMembersPerChannel: 100,
+      maxPresenceMemberSizeInKb: 2,
+      maxChannelNameLength: 200,
+      maxEventChannelsAtOnce: 100,
+      maxEventNameLength: 200,
+      maxEventPayloadInKb: 100,
+      maxEventBatchSize: 10
+    },
+    timeout: Timeout {
+      _idleTimeout: 120000,
+      _idlePrev: [TimersList],
+      _idleNext: [TimersList],
+      _idleStart: 23913,
+      _onTimeout: [Function (anonymous)],
+      _timerArgs: undefined,
+      _repeat: null,
+      _destroyed: false,
+      [Symbol(refed)]: true,
+      [Symbol(kHasPrimitive)]: false,
+      [Symbol(asyncId)]: 99,
+      [Symbol(triggerId)]: 0
+    }
+  },
+  code: 1001,
+  message: ArrayBuffer { [Uint8Contents]: <>, byteLength: 0 }
+}

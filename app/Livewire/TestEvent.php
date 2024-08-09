@@ -12,6 +12,5 @@ class TestEvent extends Component
     {
         $message = $this->message;
         event(new \App\Events\TestEvent($message));
-        return response()->json(['status' => 'Message sent!']);
     }
 }
